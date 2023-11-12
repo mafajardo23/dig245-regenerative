@@ -19,7 +19,7 @@
         </div>
         <div class="Space"></div>
                 <!-- Form -->
-                <form>
+                <form onsubmit="changeImage()">
                     <div class="row">
                         <div class="col-md-2"></div>
                         <div class="col-md-4">
@@ -64,6 +64,33 @@
             </div>
         </div>
     </div>
+        <div class="row">
+            <div class="Space"></div>
+            <div class="col-md-2"></div>
+            <div class="col-md-8"><hr></div>
+            <div class="col-md-2"></div>
+        </div>
+        <div class="row">
+            <div class="Space"></div>
+            <div class="col-md-4"></div>
+            <div class="col-md-8"><div class="plaintext">We've found the perfect recipe for you!</div></div>
+            <div class="col-md-2"></div>
+        </div>
+     <div class="row">
+        <div class="Space"></div>
+     </div>
+     <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <div id="result">
+                <img id="resultImage" src="waiting.png" class="img-fluid" alt="Result Image">
+            </div>    
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+    <div class="Space"></div>
+    <div class="Space"></div>
+
         
             <script src="assets/js/main.js"></script>
         </body>
@@ -82,9 +109,30 @@
             </div>
         </div>
     </div>
-   
-
     <!-- load javascript after the page elements render -->
-    <script src="assets/js/main.js"></script>
+    <script src="assets/js/main.js">
+         function changeImage() {
+        // Get a reference to the image element
+        var resultImage = document.getElementById('resultImage');
+        
+        // Get the selected ingredient (assuming you have radio buttons with values)
+        var selectedIngredient = document.querySelector('input[name="ingredient"]:checked').value;
+
+        // Map selected ingredient to corresponding image
+        var imageMap = {
+            'Eggs': 'egg.jpg',
+            'Butter': 'butter.jpg',
+            'Baking Soda': 'soda.jpg',
+            'Vanilla Extract': 'extract.jpg',
+            'Milk': 'milk.jpg',
+            'Yeast': 'yeast.jpg',
+            
+        };
+
+        // Change the image source based on the selected ingredient
+        resultImage.src = imageMap[selectedIngredient] || 'default-image.jpg';
+    }
+
+    </script>
 </body>
 </html>
