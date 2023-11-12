@@ -19,7 +19,7 @@
         </div>
         <div class="Space"></div>
                 <!-- Form -->
-                <form onsubmit="changeImage()">
+                <form  id="recipeForm">
                     <div class="row">
                         <div class="col-md-2"></div>
                         <div class="col-md-4">
@@ -110,29 +110,26 @@
         </div>
     </div>
     <!-- load javascript after the page elements render -->
-    <script src="assets/js/main.js">
-         function changeImage() {
-        // Get a reference to the image element
-        var resultImage = document.getElementById('resultImage');
-        
-        // Get the selected ingredient (assuming you have radio buttons with values)
-        var selectedIngredient = document.querySelector('input[name="ingredient"]:checked').value;
-
-        // Map selected ingredient to corresponding image
-        var imageMap = {
-            'Eggs': 'egg.jpg',
-            'Butter': 'butter.jpg',
-            'Baking Soda': 'soda.jpg',
-            'Vanilla Extract': 'extract.jpg',
-            'Milk': 'milk.jpg',
-            'Yeast': 'yeast.jpg',
+    <script>
+        document.getElementById('recipeForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the form from submitting the traditional way
+    
+            var resultImage = document.getElementById('resultImage');
             
-        };
-
-        // Change the image source based on the selected ingredient
-        resultImage.src = imageMap[selectedIngredient] || 'default-image.jpg';
-    }
-
+            var selectedIngredient = document.querySelector('input[name="ingredient"]:checked').value;
+    
+            var imageMap = {
+                'Eggs': 'egg.jpg',
+                'Butter': 'butter.jpg',
+                'Baking Soda': 'soda.jpg',
+                'Vanilla Extract': 'extract.jpg',
+                'Milk': 'milk.jpg',
+                'Yeast': 'yeast.jpg',
+            };
+    
+            resultImage.src = imageMap[selectedIngredient] || 'waiting.png';
+        });
     </script>
+    
 </body>
 </html>
