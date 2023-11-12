@@ -1,2 +1,32 @@
+@font-face {
+    font-family: "Kite One";
+    src: url(KiteOne-Regular.woff) format("woff"),
+    url(KiteOne-Regular.ttf)  format("truetype");
+}
+
+.container-fluid{
+    text-align: center;
+    position: sticky;
+    height: 70px;
+    background-color: #87AECF;
+  
+  }
+
+  .Space {
+    height: 53px;
+  }
+
+  .h1 {
+    font-family: "Kite One";
+    color: #8A6456;
+    font-size: 50px;
+    margin-top: 0px;
+  }
+
+  .plaintext {
+    font-family: "Kite One";
+    font-size: 27px;
+  }
+
 
 /* css */
