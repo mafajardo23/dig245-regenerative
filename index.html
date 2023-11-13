@@ -93,6 +93,7 @@
 
                     <div class="Space"></div>
                     <div class="Row-1">
+                        <div class="col-md-2"></div>
                         <div class="plaintext">Choose level of difficulty</div>
                     </div>
                     <div class="Space"></div>
@@ -167,12 +168,7 @@
         </body>
         </html>
        
-        
-        
-        
-        
-        
-
+    
             </div>
             <div class="col-12 col-md-1 col-lg-2">
         </div>
@@ -182,24 +178,88 @@
     </div>
     <!-- load javascript after the page elements render -->
     <script>
-        document.getElementById('recipeForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent the form from submitting the traditional way
-    
+       document.getElementById('ingredientForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            updateImage();
+        });
+        document.getElementById('sweetSaltyForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            updateImage();
+        });
+        document.getElementById('difficultyForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            updateImage();
+        });
+
+        function updateImage() {
             var resultImage = document.getElementById('resultImage');
-            
+
+            // Get the selected options from all three forms
             var selectedIngredient = document.querySelector('input[name="ingredient"]:checked').value;
+            var selectedSweetSalty = document.querySelector('input[name="sweetSalty"]:checked').value;
+            var selectedDifficulty = document.querySelector('input[name="difficulty"]:checked').value;
+    
+            // var resultImage = document.getElementById('resultImage');
+            
+            // var selectedIngredient = document.querySelector('input[name="ingredient"]:checked').value;
     
             var imageMap = {
-                'Eggs': 'egg.jpg',
-                'Butter': 'butter.jpg',
-                'Baking Soda': 'soda.jpg',
-                'Vanilla Extract': 'extract.jpg',
-                'Milk': 'milk.jpg',
-                'Yeast': 'yeast.jpg',
+                //Egg images
+                'Eggs_Sweet_Easy': 'eggs1.jpg',
+                'Eggs_Sweet_Medium': 'eggs2.jpg',
+                'Eggs_Sweet_Hard': 'eggs3.jpg',
+                
+                'Eggs_Salty_Easy': 'eggs1.jpg',
+                'Eggs_Salty_Medium': 'eggs2.jpg',
+                'Eggs_Salty_Hard': 'eggs3.jpg',
+                //Butter images
+                'Butter_Sweet_Easy': 'eggs1.jpg',
+                'Butter_Sweet_Medium': 'eggs2.jpg',
+                'Butter_Sweet_Hard': 'eggs3.jpg',
+
+                'Butter_Salty_Easy': 'eggs1.jpg',
+                'Butter_Salty_Medium': 'eggs2.jpg',
+                'Butter_Salty_Hard': 'eggs3.jpg',
+                //Baking Soda images
+                'Baking Soda_Sweet_Easy': 'eggs1.jpg',
+                'Baking Soda_Sweet_Medium': 'eggs2.jpg',
+                'Baking Soda_Sweet_Hard': 'eggs3.jpg',
+
+                'Baking Soda_Salty_Easy': 'eggs1.jpg',
+                'Baking Soda_Salty_Medium': 'eggs2.jpg',
+                'Baking Soda_Salty_Hard': 'eggs3.jpg',
+                //Vanilla extract images
+                'Vanilla Extract_Sweet_Easy': 'eggs1.jpg',
+                'Vanilla Extract_Sweet_Medium': 'eggs2.jpg',
+                'Vanilla Extract_Sweet_Hard': 'eggs3.jpg',
+
+                'Vanilla Extract_Salty_Easy': 'eggs1.jpg',
+                'Vanilla Extract_Salty_Medium': 'eggs2.jpg',
+                'Vanilla Extract_Salty_Hard': 'eggs3.jpg',
+                //Milk extract images
+                'Milk_Sweet_Easy': 'eggs1.jpg',
+                'Milk_Sweet_Medium': 'eggs2.jpg',
+                'Milk_Sweet_Hard': 'eggs3.jpg',
+
+                'Milk_Salty_Easy': 'eggs1.jpg',
+                'Milk_Salty_Medium': 'eggs2.jpg',
+                'Milk_Salty_Hard': 'eggs3.jpg',
+                //Yeast extract images
+                'Yeast_Sweet_Easy': 'eggs1.jpg',
+                'Yeast_Sweet_Medium': 'eggs2.jpg',
+                'Yeast_Sweet_Hard': 'eggs3.jpg',
+
+                'Yeast_Salty_Easy': 'eggs1.jpg',
+                'Yeast_Salty_Medium': 'eggs2.jpg',
+                'Yeast_Salty_Hard': 'eggs3.jpg',
+                
             };
-    
+            var imageKey = `${selectedIngredient}_${selectedSweetSalty}_${selectedDifficulty}`;
+
             resultImage.src = imageMap[selectedIngredient] || 'waiting.png';
-        });
+        };
+
+
     </script>
     
 </body>
