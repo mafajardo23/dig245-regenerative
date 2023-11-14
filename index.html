@@ -179,10 +179,11 @@
     <!-- load javascript after the page elements render -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            document.querySelectorAll('input[type=radio]').forEach(function(radio) {
-                radio.addEventListener('change', function() {
-                    updateImage();
-                });
+       
+            var submitButton = document.querySelector('button[type="submit"]');
+            submitButton.addEventListener('click', function(event) {
+                event.preventDefault(); 
+                updateImage();
             });
         });
 
