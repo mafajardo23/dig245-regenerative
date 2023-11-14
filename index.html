@@ -24,30 +24,30 @@
                         <div class="col-md-2"></div>
                         <div class="col-md-4">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="ingredient" id="Eggs" value="eggs">
+                                <input class="form-check-input" type="radio" name="ingredient" id="Eggs" value="Eggs">
                                 <label class="form-check-label" for="eggs">Eggs</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="ingredient" id="Butter" value="butter">
+                                <input class="form-check-input" type="radio" name="ingredient" id="Butter" value="Butter">
                                 <label class="form-check-label" for="butter">Butter</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="ingredient" id="BakingSoda" value="bakingSoda">
+                                <input class="form-check-input" type="radio" name="ingredient" id="BakingSoda" value="BakingSoda">
                                 <label class="form-check-label" for="bakingSoda">Baking Soda</label>
                             </div>
                         </div>
                         <div class="col-md-2"></div>
                         <div class="col-md-4">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="ingredient" id="VanillaExtract" value="vanillaExtract">
+                                <input class="form-check-input" type="radio" name="ingredient" id="VanillaExtract" value="VanillaExtract">
                                 <label class="form-check-label" for="vanillaExtract">Vanilla Extract</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="ingredient" id="Milk" value="milk">
+                                <input class="form-check-input" type="radio" name="ingredient" id="Milk" value="Milk">
                                 <label class="form-check-label" for="milk">Milk</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="ingredient" id="Yeast" value="yeast">
+                                <input class="form-check-input" type="radio" name="ingredient" id="Yeast" value="Yeast">
                                 <label class="form-check-label" for="yeast">Yeast</label>
                             </div>
                         </div>
@@ -71,13 +71,13 @@
                             <div class="col-md-3"></div>
                             <div class="col-md-4">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="sweetOrSalty" id="Sweet" value="sweet">
+                                    <input class="form-check-input" type="radio" name="sweetOrSalty" id="Sweet" value="Sweet">
                                     <label class="form-check-label" for="sweet">Sweet</label>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="sweetOrSalty" id="Salty" value="salty">
+                                    <input class="form-check-input" type="radio" name="sweetOrSalty" id="Salty" value="Salty">
                                     <label class="form-check-label" for="salty">Salty</label>
                                 </div>
                             </div>
@@ -103,20 +103,20 @@
                             <div class="col-md-2"></div>
                             <div class="col-md-3">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="difficulty" id="Easy" value="easy">
-                                    <label class="form-check-label" for="easy">Easy</label>
+                                    <input class="form-check-input" type="radio" name="difficulty" id="Easy" value="Easy">
+                                    <label class="form-check-label" for="Easy">Easy</label>
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="difficulty" id="Medium" value="medium">
-                                    <label class="form-check-label" for="medium">Medium</label>
+                                    <input class="form-check-input" type="radio" name="difficulty" id="Medium" value="Medium">
+                                    <label class="form-check-label" for="Medium">Medium</label>
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="difficulty" id="Hard" value="hard">
-                                    <label class="form-check-label" for="hard">Hard</label>
+                                    <input class="form-check-input" type="radio" name="difficulty" id="Hard" value="Hard">
+                                    <label class="form-check-label" for="Hard">Hard</label>
                                 </div>
                             </div>
                         </div>
@@ -178,22 +178,16 @@
     </div>
     <!-- load javascript after the page elements render -->
     <script>
-        document.getElementById('ingredientForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            updateImage();
-        });
-        document.getElementById('sweetOrSaltyForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            updateImage();
-        });
-        document.getElementById('difficultyForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            updateImage();
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('input[type=radio]').forEach(function(radio) {
+                radio.addEventListener('change', function() {
+                    updateImage();
+                });
+            });
         });
 
         function updateImage() {
             var resultImage = document.getElementById('resultImage');
-
             var ingredient = document.querySelector('input[name="ingredient"]:checked').value;
             var sweetOrSalty = document.querySelector('input[name="sweetOrSalty"]:checked').value;
             var difficulty = document.querySelector('input[name="difficulty"]:checked').value;
@@ -249,9 +243,9 @@
                 'Yeast_Salty_Hard': 'yeast6.jpg',
                 
             };
-            var imageKey = `${selectedingredient}_${selectedsweetOrSalty}_${selecteddifficulty}`;
+            var imageKey = `${ingredient}_${sweetOrSalty}_${difficulty}`;
 
-            resultImage.src = imageMap[selectedingredient] || 'waiting.png';
+            resultImage.src = imageMap[imageKey] || 'waiting.png';
         };
 
 
