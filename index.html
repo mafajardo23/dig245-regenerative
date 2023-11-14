@@ -14,12 +14,13 @@
 
     <div class="container">
         <div class="Space"></div>
+        <div class="Space"></div>
         <div class="Row-1">
             <div class="plaintext">Select one ingredient:</div>
         </div>
         <div class="Space"></div>
                 <!-- Form -->
-                <form  id="recipeForm">
+                <form  id="ingredientForm">
                     <div class="row">
                         <div class="col-md-2"></div>
                         <div class="col-md-4">
@@ -32,14 +33,14 @@
                                 <label class="form-check-label" for="butter">Butter</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="ingredient" id="bakingSoda" value="Baking Soda">
+                                <input class="form-check-input" type="radio" name="ingredient" id="bakingSoda" value="BakingSoda">
                                 <label class="form-check-label" for="bakingSoda">Baking Soda</label>
                             </div>
                         </div>
                         <div class="col-md-2"></div>
                         <div class="col-md-4">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="ingredient" id="vanillaExtract" value="Vanilla Extract">
+                                <input class="form-check-input" type="radio" name="ingredient" id="vanillaExtract" value="VanillaExtract">
                                 <label class="form-check-label" for="vanillaExtract">Vanilla Extract</label>
                             </div>
                             <div class="form-check">
@@ -178,11 +179,11 @@
     </div>
     <!-- load javascript after the page elements render -->
     <script>
-       document.getElementById('ingredientForm').addEventListener('submit', function(event) {
+        document.getElementById('ingredientForm').addEventListener('submit', function(event) {
             event.preventDefault();
             updateImage();
         });
-        document.getElementById('sweetSaltyForm').addEventListener('submit', function(event) {
+        document.getElementById('sweetOrSaltyForm').addEventListener('submit', function(event) {
             event.preventDefault();
             updateImage();
         });
@@ -194,10 +195,9 @@
         function updateImage() {
             var resultImage = document.getElementById('resultImage');
 
-            // Get the selected options from all three forms
-            var selectedIngredient = document.querySelector('input[name="ingredient"]:checked').value;
-            var selectedSweetSalty = document.querySelector('input[name="sweetSalty"]:checked').value;
-            var selectedDifficulty = document.querySelector('input[name="difficulty"]:checked').value;
+            var selectedingredient = document.querySelector('input[name="ingredient"]:checked').value;
+            var selectedsweetOrSalty = document.querySelector('input[name="sweetOrSalty"]:checked').value;
+            var selecteddifficulty = document.querySelector('input[name="difficulty"]:checked').value;
     
             // var resultImage = document.getElementById('resultImage');
             
@@ -209,54 +209,54 @@
                 'Eggs_Sweet_Medium': 'eggs2.jpg',
                 'Eggs_Sweet_Hard': 'eggs3.jpg',
                 
-                'Eggs_Salty_Easy': 'eggs1.jpg',
-                'Eggs_Salty_Medium': 'eggs2.jpg',
-                'Eggs_Salty_Hard': 'eggs3.jpg',
+                'Eggs_Salty_Easy': 'eggs4.jpg',
+                'Eggs_Salty_Medium': 'eggs5.jpg',
+                'Eggs_Salty_Hard': 'eggs6.jpg',
                 //Butter images
-                'Butter_Sweet_Easy': 'eggs1.jpg',
-                'Butter_Sweet_Medium': 'eggs2.jpg',
-                'Butter_Sweet_Hard': 'eggs3.jpg',
+                'Butter_Sweet_Easy': 'butter4.jpg',
+                'Butter_Sweet_Medium': 'butter2.jpg',
+                'Butter_Sweet_Hard': 'butter3.jpg',
 
-                'Butter_Salty_Easy': 'eggs1.jpg',
-                'Butter_Salty_Medium': 'eggs2.jpg',
-                'Butter_Salty_Hard': 'eggs3.jpg',
+                'Butter_Salty_Easy': 'butter4.jpg',
+                'Butter_Salty_Medium': 'butter5.jpg',
+                'Butter_Salty_Hard': 'butter6.jpg',
                 //Baking Soda images
-                'Baking Soda_Sweet_Easy': 'eggs1.jpg',
-                'Baking Soda_Sweet_Medium': 'eggs2.jpg',
-                'Baking Soda_Sweet_Hard': 'eggs3.jpg',
+                'BakingSoda_Sweet_Easy': 'soda1.jpg',
+                'BakingSoda_Sweet_Medium': 'soda2.jpg',
+                'BakingSoda_Sweet_Hard': 'soda4.jpg',
 
-                'Baking Soda_Salty_Easy': 'eggs1.jpg',
-                'Baking Soda_Salty_Medium': 'eggs2.jpg',
-                'Baking Soda_Salty_Hard': 'eggs3.jpg',
+                'BakingSoda_Salty_Easy': 'soda4.jpg',
+                'BakingSoda_Salty_Medium': 'soda5.jpg',
+                'BakingSoda_Salty_Hard': 'soda6.jpg',
                 //Vanilla extract images
-                'Vanilla Extract_Sweet_Easy': 'eggs1.jpg',
-                'Vanilla Extract_Sweet_Medium': 'eggs2.jpg',
-                'Vanilla Extract_Sweet_Hard': 'eggs3.jpg',
+                'VanillaExtract_Sweet_Easy': 'vanilla1.jpg',
+                'VanillaExtract_Sweet_Medium': 'vanilla2.jpg',
+                'VanillaExtract_Sweet_Hard': 'vanilla3.jpg',
 
-                'Vanilla Extract_Salty_Easy': 'eggs1.jpg',
-                'Vanilla Extract_Salty_Medium': 'eggs2.jpg',
-                'Vanilla Extract_Salty_Hard': 'eggs3.jpg',
+                'VanillaExtract_Salty_Easy': 'vanilla4.jpg',
+                'VanillaExtract_Salty_Medium': 'vanilla5.jpg',
+                'VanillaExtract_Salty_Hard': 'vanilla6.jpg',
                 //Milk extract images
-                'Milk_Sweet_Easy': 'eggs1.jpg',
-                'Milk_Sweet_Medium': 'eggs2.jpg',
-                'Milk_Sweet_Hard': 'eggs3.jpg',
+                'Milk_Sweet_Easy': 'milk1.jpg',
+                'Milk_Sweet_Medium': 'milk2.jpg',
+                'Milk_Sweet_Hard': 'milk3.jpg',
 
-                'Milk_Salty_Easy': 'eggs1.jpg',
-                'Milk_Salty_Medium': 'eggs2.jpg',
-                'Milk_Salty_Hard': 'eggs3.jpg',
+                'Milk_Salty_Easy': 'milk4.jpg',
+                'Milk_Salty_Medium': 'milk5.jpg',
+                'Milk_Salty_Hard': 'milk6.jpg',
                 //Yeast extract images
-                'Yeast_Sweet_Easy': 'eggs1.jpg',
-                'Yeast_Sweet_Medium': 'eggs2.jpg',
-                'Yeast_Sweet_Hard': 'eggs3.jpg',
+                'Yeast_Sweet_Easy': 'yeast1.jpg',
+                'Yeast_Sweet_Medium': 'yeast2.jpg',
+                'Yeast_Sweet_Hard': 'yeast3.jpg',
 
-                'Yeast_Salty_Easy': 'eggs1.jpg',
-                'Yeast_Salty_Medium': 'eggs2.jpg',
-                'Yeast_Salty_Hard': 'eggs3.jpg',
+                'Yeast_Salty_Easy': 'yeast4.jpg',
+                'Yeast_Salty_Medium': 'yeast5.jpg',
+                'Yeast_Salty_Hard': 'yeast6.jpg',
                 
             };
-            var imageKey = `${selectedIngredient}_${selectedSweetSalty}_${selectedDifficulty}`;
+            var imageKey = `${selectedingredient}_${selectedsweetOrSalty}_${selecteddifficulty}`;
 
-            resultImage.src = imageMap[selectedIngredient] || 'waiting.png';
+            resultImage.src = imageMap[selectedingredient] || 'waiting.png';
         };
 
 

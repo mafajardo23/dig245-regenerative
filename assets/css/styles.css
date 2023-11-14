@@ -6,7 +6,7 @@
 
 .container-fluid{
     text-align: center;
-    position: sticky;
+    position:fixed;
     height: 70px;
     background-color: #87AECF;
   
